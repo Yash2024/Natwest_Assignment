@@ -38,43 +38,7 @@ public class RestService {
 	    private ReferenceDataRepository refRepository;
 	
 		private org.slf4j.Logger logger = LoggerFactory.getLogger(Rest.class);
-		
-//		public void getInput(MultipartFile file1){
-//			List<InputData> records = new ArrayList<>();
-//	        try (BufferedReader reader = new BufferedReader(new InputStreamReader(file1.getInputStream()));
-//	             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
-//	        	
-//	        	boolean firstRecord = true; 
-//	
-//	            for (CSVRecord csvRecord : csvParser) {
-//	            	
-//	            	if (firstRecord) {
-//	                    firstRecord = false;
-//	                    continue;  // Skip the first record (header or initial data)
-//	                }
-//	            	String field1 = csvRecord.get(0);  // Assuming field1 is the first column (index 0)
-//	                String field2 = csvRecord.get(1);  // Assuming field2 is the second column (index 1)
-//	                String field3 = csvRecord.get(2);  // Assuming field3 is the third column (index 2)
-//	                String field4 = csvRecord.get(3);  // Assuming field4 is the fourth column (index 3)
-//	                Double field5 = Double.parseDouble(csvRecord.get(4));  // Assuming field5 is the fifth column (index 4)
-//	                String refkey1 = csvRecord.get(5);  // Assuming refkey1 is the sixth column (index 5)
-//	                String refkey2 = csvRecord.get(6);	// Assuming refkey2 is the seventh column (index 6)
-//	                
-//	                
-//	                InputData rec = new InputData(field1, field2, field3, field4, field5, refkey1, refkey2);
-//	
-//	                // Add the inputData object to the list
-//	                records.add(rec);
-//	                // Log the record
-//	//                logger.info("Record: {}", rec);
-//	            }
-//	
-//	        } catch (IOException e) {
-//	            logger.error("Error reading CSV file", e);
-//	        }
-//	        ipRepository.saveAll(records);
-//		
-//		}
+	
 		
 		int BATCH_SIZE = 100000; // Adjust the batch size as needed
 
@@ -115,41 +79,6 @@ public class RestService {
 	        logger.info("Saved batch of size: {}", batch.size());
 	    }
 	
-		
-//		public void getRefs(MultipartFile file2) {
-//			
-//				List<ReferenceData> refrecs = new ArrayList<>();
-//		        try (BufferedReader reader = new BufferedReader(new InputStreamReader(file2.getInputStream()));
-//		             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
-//		        	
-//		        	boolean firstRecord = true; 
-//		
-//		            for (CSVRecord csvRecord : csvParser) {
-//		            	
-//		            	if (firstRecord) {
-//		                    firstRecord = false;
-//		                    continue;  // Skip the first record (header or initial data)
-//		                }
-//		            	String refkey1 = csvRecord.get(0);  // Assuming refkey1 is the first column (index 0)
-//		                String refdata1 = csvRecord.get(1);  // Assuming refdata1 is the second column (index 1)
-//		                String refkey2 = csvRecord.get(2);  // Assuming refkey2 is the third column (index 2)
-//		                String refdata2 = csvRecord.get(3);  // Assuming refdata2 is the fourth column (index 3)
-//		                String refdata3 = csvRecord.get(4);  // Assuming refdata3 is the fifth column (index 4)
-//		                Double refdata4 = Double.parseDouble(csvRecord.get(5));  // Assuming refdata4 is the sixth column (index 5)
-//		               
-//		                
-//		                ReferenceData rec = new ReferenceData(refkey1,refdata1,refkey2,refdata2,refdata3,refdata4);
-//		
-//		                refrecs.add(rec);
-//		                // Log the record
-//		//                logger.info("Record refs: {}", rec);
-//		            }
-//		
-//		        } catch (IOException e) {
-//		            logger.error("Error reading CSV file", e);
-//		        }
-//		        refRepository.saveAll(refrecs);
-//		}
 	    
 	    public void getRefs(MultipartFile file) {
 	        List<ReferenceData> batch = new ArrayList<>();
